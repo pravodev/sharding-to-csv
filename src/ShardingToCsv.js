@@ -23,7 +23,7 @@ export class ShardingToCsv extends EventEmitter {
       if(fs.existsSync(this._file)) {
         fs.unlinkSync(this._file);
       }
-      this.emit('completed');
+      this.emit('completed', this._count);
     });
 
     rl.on('error', (err) => this.emit('error', err));
